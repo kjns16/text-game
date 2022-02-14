@@ -1,4 +1,5 @@
 import csv
+import time
 
 class Game:
 
@@ -49,10 +50,10 @@ class Game:
                 
                 line_count += 1
 
-    def getNext(self, input=""):
-
-
-        return 'X'
+#    def getNext(self, input=""):
+#
+#
+#        return 'X'
 
 
 def main():
@@ -72,6 +73,7 @@ def main():
 
             print(game.storyNodes[game.curNodeID]["output"])
             print("")
+            time.sleep(5)
 
             #grab user input
             if(game.storyNodes[game.curNodeID]["user_input_needed"] == 'TRUE') :
@@ -88,6 +90,7 @@ def main():
                         game.nextNodeID = game.nextNodes[game.curNodeID][userInput]
                     except: 
                         print("I really didn't get that. Try again!")
+                        print("")
                     else:
                         inputValid = True
 
