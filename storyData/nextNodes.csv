@@ -1,0 +1,11 @@
+node_ID,resp_option,next_node_ID
+1,window,2
+1,chest,5
+1,stairs,7
+1,bed,3
+8,yes,9
+8,no,10
+102,jump,120
+102,hallway,150
+150,armor,151
+150,running,170
