@@ -5,17 +5,18 @@ class Game:
 
     def __init__(self):
 
-        #game variables
-        self.MAX_TURNS = 30
-        self.player_name = ""
+        #turn counter
+        self.MAX_TURNS = 37
 
         #needed for running
         self.curNodeID = '0'
         self.nextNodeID = '1'
 
+        #libraries
         self.storyNodes = {}
         self.nextNodes = {}
 
+        #globals
         self.grabbedDagger = False
         self.grabbedRope = False
         self.wearingArmor = False
@@ -54,10 +55,11 @@ class Game:
                 
                 line_count += 1
 
+    # gets the next story element
     def getNext(self, input=""):
         
         if (self.storyNodes[self.curNodeID]["user_input_needed"] == 'TRUE') :
-
+            # set and check global variables
             if (self.curNodeID == '203' and input == 'yes'):
                 self.wearingArmor = True
                 self.nextNodeID = self.nextNodes[self.curNodeID][input]
@@ -70,18 +72,18 @@ class Game:
             else:
                 self.nextNodeID = self.nextNodes[self.curNodeID][input]
 
-            #self.nextNodeID = self.nextNodes[self.curNodeID][input]
         else:
+            # if we are at the chest
             if (self.curNodeID == '5'):
+                # set global variables
                 self.grabbedDagger = True
                 self.grabbedRope = True
-                #print("")
+                
                 print("Items grabbed")
                 print("")
             
             self.nextNodeID = self.storyNodes[self.curNodeID]["next_node_ID"]
 
-        #return 'X'
 
 
 def main():
@@ -109,16 +111,18 @@ def main():
 
     while (num_turns < game.MAX_TURNS and game.nextNodeID != 'X' and game.nextNodeID != ':)') :
 
-        # do stuff with curNode
-
+        # catch all so program thows no errors
         if(game.curNodeID not in game.storyNodes):
             print("You died via alligator attack!")
             num_turns = game.MAX_TURNS + 1
-        else:
+
+        else: # for when the code works as intented
 
             print(game.storyNodes[game.curNodeID]["output"])
             print("")
-            time.sleep(0.5)
+
+            # give player enough time to read
+            time.sleep(2.5)
 
             #grab user input
             if(game.storyNodes[game.curNodeID]["user_input_needed"] == 'TRUE' and game.curNodeID != '242') :
@@ -128,11 +132,9 @@ def main():
 
                     userInput = input("> ")
                     print("")
-                    #print(userInput)
-                    #print(game.curNodeID)
 
+                    # try user input
                     try:
-                        #game.nextNodeID = game.nextNodes[game.curNodeID][userInput]
                         game.getNext(userInput)
                     except: 
                         print("I really didn't get that. Try again!")
@@ -140,23 +142,30 @@ def main():
                     else:
                         inputValid = True
 
-                #game.nextNodeID = game.nextNodes[game.curNodeID][userInput]
 
             else:
-                #game.nextNodeID = game.storyNodes[game.curNodeID]["next_node_ID"]
                 game.getNext()
 
             game.curNodeID = game.nextNodeID
 
             num_turns += 1
 
+
+    #######################################
+    # CASE 1: MADE TOO MANY BAD DECISIONS #
+    #######################################
     if(num_turns == game.MAX_TURNS) :
         print("You took too long trying to escape and the fire has gotten to you!")
 
-    
+    ###################################
+    # CASE 2: WENT DOWN A DEATH ROUTE #
+    ###################################
     if(game.nextNodeID == 'X'):
         print("You've died!")
 
+    #############################
+    # CASE 3: MADE IT TO SAFETY #
+    #############################
     if(game.nextNodeID == ":)"):
         print("You have successfully escaped from the burning castle!")
         print("")
