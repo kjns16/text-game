@@ -6,7 +6,7 @@ class Game:
     def __init__(self):
 
         #turn counter
-        self.MAX_TURNS = 37
+        self.MAX_TURNS = 35
 
         #needed for running
         self.curNodeID = '0'
