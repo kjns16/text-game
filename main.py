@@ -16,6 +16,10 @@ class Game:
         self.storyNodes = {}
         self.nextNodes = {}
 
+        self.grabbedDagger = False
+        self.grabbedRope = False
+        self.wearingArmor = False
+
 
         # load and process storyNodes
         with open('storyData/storyNodes.csv', mode='r') as csv_file:
@@ -50,10 +54,34 @@ class Game:
                 
                 line_count += 1
 
-#    def getNext(self, input=""):
-#
-#
-#        return 'X'
+    def getNext(self, input=""):
+        
+        if (self.storyNodes[self.curNodeID]["user_input_needed"] == 'TRUE') :
+
+            if (self.curNodeID == '203' and input == 'yes'):
+                self.wearingArmor = True
+                self.nextNodeID = self.nextNodes[self.curNodeID][input]
+            elif(self.curNodeID == '242' and self.wearingArmor and self.grabbedDagger):
+                self.nextNodeID = '250'
+            elif(self.curNodeID == '242' and self.wearingArmor and not self.grabbedDagger):
+                self.nextNodeID = '260'
+            elif(self.curNodeID == '242' and not self.wearingArmor):
+                self.nextNodeID = '270'
+            else:
+                self.nextNodeID = self.nextNodes[self.curNodeID][input]
+
+            #self.nextNodeID = self.nextNodes[self.curNodeID][input]
+        else:
+            if (self.curNodeID == '5'):
+                self.grabbedDagger = True
+                self.grabbedRope = True
+                #print("")
+                print("Items grabbed")
+                print("")
+            
+            self.nextNodeID = self.storyNodes[self.curNodeID]["next_node_ID"]
+
+        #return 'X'
 
 
 def main():
@@ -62,7 +90,24 @@ def main():
 
     num_turns = 0
 
-    while (num_turns < game.MAX_TURNS and game.nextNodeID != 'X') :
+    print("")
+    print("******************************************************")
+    print("*                                                    *")
+    print("*    Welcome to our very own text-based adventure    *")
+    print("*              game inspired by Advent!              *")
+    print("*                                                    *")
+    print("*           The authors of this game are:            *")
+    print("*     Oscar Dong, Kelsey Recinas, and Aileen Wu      *")
+    print("*                                                    *")
+    print("*      Your mission, should you choose to accept,    *")
+    print("*    is to escape from your burning castle before    *")
+    print("*      the flames have a chance to consume you!      *")
+    print("*                                                    *")
+    print("******************************************************")
+    print("")
+
+
+    while (num_turns < game.MAX_TURNS and game.nextNodeID != 'X' and game.nextNodeID != ':)') :
 
         # do stuff with curNode
 
@@ -73,10 +118,10 @@ def main():
 
             print(game.storyNodes[game.curNodeID]["output"])
             print("")
-            time.sleep(5)
+            time.sleep(0.5)
 
             #grab user input
-            if(game.storyNodes[game.curNodeID]["user_input_needed"] == 'TRUE') :
+            if(game.storyNodes[game.curNodeID]["user_input_needed"] == 'TRUE' and game.curNodeID != '242') :
                 inputValid = False
                 userInput = ""
                 while(not inputValid):
@@ -87,7 +132,8 @@ def main():
                     #print(game.curNodeID)
 
                     try:
-                        game.nextNodeID = game.nextNodes[game.curNodeID][userInput]
+                        #game.nextNodeID = game.nextNodes[game.curNodeID][userInput]
+                        game.getNext(userInput)
                     except: 
                         print("I really didn't get that. Try again!")
                         print("")
@@ -97,7 +143,8 @@ def main():
                 #game.nextNodeID = game.nextNodes[game.curNodeID][userInput]
 
             else:
-                game.nextNodeID = game.storyNodes[game.curNodeID]["next_node_ID"]
+                #game.nextNodeID = game.storyNodes[game.curNodeID]["next_node_ID"]
+                game.getNext()
 
             game.curNodeID = game.nextNodeID
 
@@ -109,6 +156,11 @@ def main():
     
     if(game.nextNodeID == 'X'):
         print("You've died!")
+
+    if(game.nextNodeID == ":)"):
+        print("You have successfully escaped from the burning castle!")
+        print("")
+        print("You win!")
 
 
     return 0

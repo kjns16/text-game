@@ -1,23 +1,52 @@
 node_ID,output,user_input_needed,next_node_ID
 0,You are in your bedroom at the top of your castle's main tower. Looking out the window you see that the palace is on fire. Outside there are people screaming and you are confused as to how you slept through this all!!,FALSE,1
-1,"In front of you is a chest of your most prized possestions, to the left is a window, to the right is the tower stairs that will lead you to safety, and behind you is your bed and its plush mattress. \nWhere would you like to move?",TRUE,"window=2, chest=5, stairs=7, bed=3"
+1,"In front of you is a chest of your most prized possestions, to the left is a window, to the right is the tower stairs that will lead you to safety, and behind you is your bed and its plush mattress.   Where would you like to move?",TRUE,"window=2, chest=5, stairs=7, bed=3"
 2,Looking out the window you see your home burning down and weep because your beloved collection of Justin Bieber signed memorabelia will be consumed in the blaze. You force yourself to calm down and turn away from the window.,FALSE,1
 3,"Overwhelmed with your current situation, you turn back towards your bed and decide a quick nap will take care of your problems! After a refreshing 20 minute nap, you realize that--unfortunately-- you did not dream up the fire and that, it is, in fact real. You are back to where you started.",FALSE,1
 5,"You move to your chest of items and open it. Inside is a dagger given to you by your decesaced parents, your stuffed bear Reggie, and a rope that you used to use to sneak out at night.",FALSE,6
-6,"After rifling though the chest, you back away and are exactly where you started. Scared and alone.",FALSE,1
+6,"Being the ever forward thinking Vandy student you are, you take all of the items in the chest. After rifling though the chest, you back away and are exactly where you started. Scared and alone.",FALSE,1
 7,"Deciding that you should probably make your way out of the tower and to safety, you run out of your room and down the only stairwell in the tower.",FALSE,8
-8,"Halfway down the stairwell you take one last look at the mysterious door that you have been forbidden from ever entering. Because you love your parents, you have never disobeyed their orders and entered the room, but this palace is toast and you will be forever upset if you don't know what is behind that door! Would you like to find out? \nEnter yes or no",TRUE,"yes=9, no=10"
-9,Opening the door all you see is cleaning supplies... Why would your parents gaslight you like this? you close the door and continue your discent down the tower stairs.,FALSE,10
-10,"You have made it down the long set of stairs, and the extent to which you are out of breath reminds you of your unused gym membership. You'll start working out next year! After catching your breath, you are suprised to see your parent's old bodyguard Jeff coming towards you",FALSE,11
-30,"You: ""Jeff what are you still doing in the castle!? Can't you see the place is up in flames? Your heart can't handle something like this in your old age""\nJeff is annoyed at the mention of his age, but quickly moves on.",FALSE,31
-31,"Jeff: {userData.name}, I was just about to go to your room to grab you! No one saw you outside after the place was evacuated and I promised your parents I would always take of you'",FALSE,32
+8,"Halfway down the stairwell you take one last look at the mysterious door that you have been forbidden from ever entering. Because you love your parents, you have never disobeyed their orders and entered the room, but this palace is toast and you will be forever upset if you don't know what is behind that door! Would you like to find out?   Enter yes or no",TRUE,"yes=9, no=10"
+9,Opening the door all you see is cleaning supplies... Why would your parents gaslight you like this? You close the door and continue your discent down the tower stairs.,FALSE,10
+10,"You have made it down the long set of stairs, and the extent to which you are out of breath reminds you of your unused gym membership. You'll start working out next year! After catching your breath, you are suprised to see your parent's old bodyguard Jeff coming towards you",FALSE,30
+30,"You: ""Jeff what are you still doing in the castle!? Can't you see the place is up in flames? Your heart can't handle something like this in your old age"" Jeff is annoyed at the mention of his age, but quickly moves on.",FALSE,31
+31,"Jeff: ""I was just about to go to your room to grab you! No one saw you outside after the place was evacuated and I promised your parents I would always take of you'",FALSE,32
 32,"You: ""Jeff, I am no longer a child and you haven't been on my security detail for years. Where is my royal guard?""",FALSE,33
-33,Jeff: The most important thing right now is for you to come with me.,FALSE,34
-34,"You debate the merits of questioning Jeff's presence in your head. On the one hand you're not sure of Jeff's motives, on the other hand your castle is on fire and are there is little time to worry about his motive now. \nDo you trust Jeff?",,"yes=35, no=36"
+33,Jeff: "The most important thing right now is for you to come with me.",FALSE,34
+34,"You debate the merits of questioning Jeff's presence in your head. On the one hand you're not sure of Jeff's motives, on the other hand your castle is on fire and are there is little time to worry about his motive now.  Do you trust Jeff?",TRUE,"yes=35, no=36"
 35,You: Okay let's get out of here! I don't know how much time we have left before this place is all rubble and ash!,FALSE,101
+36,"You: "What are you really doing here Jeff?",FALSE,37
+37,"A devious smile washes over Jeff's face and you know you were right not to trust him...",FALSE,38
+38,"Jeff: You were always too smart for your own good you little shit",FALSE,39
+39,"Jeff advances on you fast, despite his old age. You are able to get in a few blows, but you are no match for his years of experience. He is able to strike you down quickly with a jab to the heart.",FALSE,40
+40,"As you lay dying Jeff says: Your parents took everything from me, and my revenge is to take away the legacy that they left behind.",FALSE,X
 101,"As you talk with Jeff, the tower where you lived has crumbled from the flames. Large pieces of rubble drop down from the ceiling as it breaks apart. ",FALSE,102
-102,"You two have to get out of there now! But there are only have a two options:\n1. On your right, a piece of stone brick breaks off the wall and from the gap you can see a hundred feet drop into some large bushes. If you try to land there, you think, you can make the jump ... maybe...\n2. On your left, you see a dark hallway towards the ballroom. Disturbingly it's emitting puffs of gray smoke ... \nWhat do you choose, the jump or the hallway?",TRUE,"jump=120, hallway=150"
-120,"You squeeze yourself through the gap. ""What on earth are you doing?"" asks Jeff, but you ignore him. You land ... on a green soft carpet in the drawing room you know to be downstairs. You realized that you saw the carpet through the gap and thought it was the outdoors. Luckily for you, you didn't just jump 100 feet! Unluckily, the fall was still quite hard and you realize your two legs have been broken in the process. You lay there helpless for twenty minutes as the fire makes its way across the castle for you and eventually consumes you. Game over!",FALSE,X
-150,"You start sprinting down the hallway. ""This way!"" you yell. Jeff follows you and you make your way across the castle. This part of the castle feels a lot cooler and much more damp. Where's the smoke you thought you saw coming from this direction? On your way, you see a silver knight's armor. Ahead of you, you hear distant yells and screams down the corridor. Jeff slids to a halt and picks up the helmet. ""This could come in handy,"" he says, nodding to the hallway ahead of you. You hesitate. Do you put on the armor or keep running, full speed ahead?",TRUE,"armor=151, running=170"
-151,You chose armor. You win!,FALSE,X
+102,"You two have to get out of there now! But there are only have a two options:",FALSE,103
+103,"1. On your right, a piece of stone brick breaks off the wall and from the gap you can see a hundred feet drop into some large bushes. If you try to land there, you think, you can make the jump ... maybe...",FALSE,104
+104,"2. On your left, you see a dark hallway towards the ballroom. Disturbingly it's emitting puffs of gray smoke ...",FALSE,105
+105,"What do you choose, the jump or the hallway towards the ballroom?",TRUE,"jump=120, hallway=200"
+120,"You chose to jump and squeeze yourself through the gap. What you thought was a bush was actually the green carpet in the drawing room below!",FALSE,121
+121,"It has been years since you've been down here, but you remember that there are two possible routes of escape from here. As Jeff joins you down in the drawing room from the hall above, you ponder your two options.",FALSE,122
+122,"1. There is a closet to the left with all manner of art supplies, but from your wild teenage years you know there is a window accesible from behind one of the shelves that leads out to the back.",FALSE,123
+123,"2. Using the main drawing room door as your exit, you could run down the hall and out the front door, though you are not as in shape as you once thought, meaning you would be risking smoke inhalation...",FALSE,124
+124,"Which route of escape will you choose?",TRUE,"closet=400, hallway=420"
+400,"Opening the closet door you see find the tower's collapse has blocked off this exit!",FALSE,401
+401,"Closing the door to the closet and returning to where, you realize that the door to the hallway is your only viable escape route.   What will you do now?",TRUE,"hallway=420, door=420, out=420"
+420,"You: Looks like out this door is our best route of escape, but we gotta run fast!",FALSE,421
+421,"You and Jeff run out through the drawing room door, where you find that the fire is worse than you previously thought. Out of options, you and Jeff make haste though the main corridor of your beloved castle. Jeff is having trouble keeping up and you find yourself lagging behind as well. You keep pushing forward, but slowly the world around you begins to fade.",FALSE,422
+422,"You have died from smoke inhalation :/",FALSE,X
+200,"This way! you yell at Jeff and start sprinting down the hallway towards the ballroom. Jeff follows you and you make your way across the castle. This part of the castle feels a lot cooler and much more damp. Where's the smoke you thought you saw coming from this direction?",FALSE,201
+201,"As you try to make it towards safety you stop for a moment to look at your deceased father's armor from his days as a knight. Watching your childhood home burn around you made you extra sentimental and you debate taking this last vestage of your father.",FALSE,202
+202,"Jeff runs up behind you, annoyed that you stopped and asks: Why have you stopped, can't you see the castle is burning? Rolling your eyes at his sarcasm, you explain why you have stopped, which seems to garner you sympathy from the old man.",FALSE,203
+203,"Would you like to take the armor?",TRUE,"yes=220 no=230"
+220,"Donning the armor, you make record time to the ballroom.",FALSE,240
+230,"Deciding that you don't have enough time, you make your way down the hall into the ballroom.",FALSE,240
+240,"Inside of the ballroom you realize that you are almost to safety! All you need is to break the stained glass window and jump. Retreiving a chair from the corner, you throw it through the window to create a hole big enough to jump through.",FALSE,241
+241,"You turn around to see Jeff with a strange expression on his face.",FALSE,242
+242,"Jeff: You should have never trusted me kid",TRUE,"if armor==true and chest stuff=true 250, if only armor 260, if nothing 270"
+250,"Despite Jeff's years of experience in hand to hand combat, he has been weakened by smoke inhalation and is unprepared to fight you whilst not protected with armor. Jeff gets in a few early blows, but they are all deflected by your father's armor. You stab and kill the man that set fire to your castle.",FALSE,251
+251,"Because of the fire that is steadily making its way closer to the ballroom, you are unable to dwell on Jeff's betrayal. Running towards the hole you made earlier, you use the rope you have to repel down the wall of the castle to safety.",FALSE,:)
+260,"Though you have your father's armor to protect you against the blows being dished out by Jeff, you are no match for him in hand to hand combat. The smoke has made Jeff slower and made you two a more even match, but this has only meant that the fight has gone longer than you have time for. Before you two know it, smoke starts filling the ballroom and the whole world becomes darkness",FALSE,261
+261,"You have died of smoke inhalation",FALSE,X
+270,"With nothing to protect yourself, Jeff makes quick work of killing you. The last words you hear are Jeff saying: This kingdom will be mine",FALSE,X
 170,You chose running. You win!,FALSE,X
