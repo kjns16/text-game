@@ -1,3 +1,6 @@
+My name is kenneth and I just forked my first repo
+I am learning git/github!
+
 # Text-Based Adventure Game
 
 ## Contributing Authors
